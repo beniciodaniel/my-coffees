@@ -15,14 +15,17 @@ export const Content = styled.section`
 
 export const Heading = styled.h1`
   font-size: var(--large);
+  /* text-transform: uppercase; */
   margin-bottom: var(--large);
 `
 
 export const Body = styled.div`
+  text-align: justify;
   // serve para estilos do body
   // p, a, ul, li, blockquote
-  p {
+  p,
+  a {
     font-size: var(--medium);
-    line-height: var(--medium);
+    line-height: 4rem;
   }
 `

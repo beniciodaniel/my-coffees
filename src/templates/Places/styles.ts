@@ -15,7 +15,14 @@ export const Heading = styled.h1`
 `
 
 export const Body = styled.div`
+  text-align: justify;
   margin-bottom: var(--large);
+
+  h2 {
+    font-size: var(--medium);
+    margin-bottom: var(--small);
+  }
+
   p {
     margin-bottom: var(--medium);
   }
