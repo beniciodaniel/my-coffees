@@ -38,8 +38,8 @@ const Map = ({ places }: MapProps) => {
 
   return (
     <MapContainer
-      center={[-24, -49.5]}
-      zoom={6}
+      center={[-25.4372, -49.27]}
+      zoom={10}
       style={{ height: '100%', width: '100%' }}
     >
       <CustomTileLayer />
