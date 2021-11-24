@@ -12,7 +12,7 @@ export default function HomeTemplate({ places }: MapProps) {
   return (
     <>
       <NextSeo
-        title="My Coffee Trips"
+        title="YEAH YEAH!"
         description="A simple project to show in a map the places that I went and show more informations and photos when clicked"
         canonical="https://coffees2.vercel.app"
       />
