@@ -2,7 +2,7 @@ export default {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://beni-coffee-trips.vercel.app',
+    url: 'https://coffees2.vercel.app',
     site_name: 'My Coffee Trips'
   },
   twitter: {

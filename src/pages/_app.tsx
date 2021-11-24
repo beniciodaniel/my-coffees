@@ -10,7 +10,10 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <link rel="shortcut icon" href="favicon.ico" />
+        <link
+          rel="icon"
+          href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/285/hot-beverage_2615.png"
+        />
         <link rel="manifest" href="/manifest.json" />
         <link
           rel="stylesheet"
