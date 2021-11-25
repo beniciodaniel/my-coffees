@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   z-index: 1100; // bigger than leaflet
   top: var(--medium);
   right: var(--medium);
-  color: var(--highlight);
+  color: var(--white);
   cursor: pointer;
   svg {
     transition: color 0.3s ease-in-out;
