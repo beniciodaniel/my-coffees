@@ -25,14 +25,14 @@ const GlobalStyles = createGlobalStyle`
   html, body, #__next {
     height: 100%;
     background: var(--background);
-    color: #f7f8f8;
+    color: var(--dark);
   }
 
   body {
     font-family: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
   }
 
-  h3, p, a {
+  h6, p, a {
     font-size: 2rem;
     line-height: var(--medium);
   }

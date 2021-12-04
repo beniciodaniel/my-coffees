@@ -18,13 +18,14 @@ export const Body = styled.div`
   text-align: justify;
   margin-bottom: var(--large);
 
-  h2 {
-    font-size: var(--medium);
-    margin-bottom: var(--small);
+  h6 {
+    font-size: var(--small);
+    margin-top: -2.5rem;
+    margin-bottom: var(--medium);
   }
 
   p {
-    margin-bottom: var(--medium);
+    margin-bottom: var(--small);
   }
 `
 
