@@ -71,7 +71,7 @@ export default function PlacesTemplate({ place }: PlacesTemplateProps) {
                 src={image.url}
                 alt={place.name}
                 width={1000}
-                height={600}
+                height={700}
                 quality={75}
                 objectFit="cover"
               />

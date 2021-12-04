@@ -41,7 +41,7 @@ export const Gallery = styled.div`
       #f6f7f8 40%,
       #f6f7f8 100%
     );
-    background-size: 80rem 14rem;
+    background-size: 80rem 20rem;
     animation: placeholderShimmer 1s linear infinite forwards;
     @keyframes placeholderShimmer {
       0% {
