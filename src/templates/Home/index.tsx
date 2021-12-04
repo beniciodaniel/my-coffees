@@ -13,7 +13,7 @@ export default function HomeTemplate({ places }: MapProps) {
       <NextSeo
         title="YEAH YEAH!"
         description="A simple project to show in a map the places that I went and show more informations and photos when clicked"
-        canonical="https://coffees2.vercel.app"
+        canonical="https://beniwalker.vercel.app"
       />
       <LinkWrapper href="/about">
         <InfoOutline size={28} aria-label="about" />

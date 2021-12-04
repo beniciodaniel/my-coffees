@@ -35,9 +35,9 @@ export default function PlacesTemplate({ place }: PlacesTemplateProps) {
       <NextSeo
         title={`${place.name} - My Coffee Trips`}
         description={place.description?.text}
-        canonical="https://coffees2.vercel.app"
+        canonical="https://beniwalker.vercel.app"
         openGraph={{
-          url: 'https://coffees2.vercel.app',
+          url: 'https://beniwalker.vercel.app',
           title: `${place.name} - My Coffee Trips`,
           description:
             place.description?.text ||
