@@ -34,6 +34,8 @@ const CustomTileLayer = () => {
   )
 }
 
+// INSTALADO RECOIL -> USAR ELE PARA FICAR SALVANDO O ULTIMO ZOOM E COORDENADAS DA TELA
+
 const Map = ({ places }: MapProps) => {
   const router = useRouter()
 
