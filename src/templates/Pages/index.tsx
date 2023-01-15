@@ -26,6 +26,9 @@ const PageTemplate = ({ body, heading }: PageTemplateProps) => (
       <S.Body>
         <div dangerouslySetInnerHTML={{ __html: body }} />
       </S.Body>
+
+      {/* {heading === 'About' && <p>KKKK</p>}
+      Inserir PIX */}
     </S.Content>
   </>
 )
