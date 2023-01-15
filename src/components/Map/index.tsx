@@ -17,8 +17,8 @@ type Place = {
 
 export type MapProps = {
   places?: Place[]
-  setMapRef: (map: any) => void
-  mapRef: any
+  setMapRef?: (map: any) => void
+  mapRef?: any
 }
 
 const MAPBOX_API_KEY = process.env.NEXT_PUBLIC_MAPBOX_API_KEY
