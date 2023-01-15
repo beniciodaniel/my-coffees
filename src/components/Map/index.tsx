@@ -3,6 +3,7 @@ import { useRouter } from 'next/dist/client/router'
 import * as S from './styles'
 import { useRecoilState, useRecoilValue } from "recoil"
 import { boundAtom } from "atoms/boundAtom"
+import { LatLngExpression } from "leaflet"
 
 type Place = {
   id: string
@@ -42,31 +43,23 @@ const CustomTileLayer = () => {
 }
 
 
-
-// INSTALADO RECOIL -> USAR ELE PARA FICAR SALVANDO O ULTIMO ZOOM E COORDENADAS DA TELA
-
 const Map = ({ places, setMapRef, mapRef }: MapProps) => {
-  
   const router = useRouter()
   const [bound, setBound] = useRecoilState(boundAtom)
   const boundState = useRecoilValue(boundAtom)
   
-  
   function handleClick(slug: string) {
-    // setHasClicked(true)
     console.log(bound, boundState)
-    setBound({bound: mapRef.getBounds(), zoom: mapRef.getBoundsZoom(mapRef.getBounds())})
-  
+    setBound({LatLng: mapRef.getCenter(), zoom: mapRef.getBoundsZoom(mapRef.getBounds())})
     router.push(`/place/${slug}`)
   }
-
   
   return (
     <S.MapWrapper>
       <MapContainer
         whenCreated={setMapRef}
-        center={[0, 0]}
-        zoom={3}
+        center={[bound.LatLng.lat, bound.LatLng.lng]}
+        zoom={bound.zoom}
         minZoom={3}
         maxBounds={[
           [-180, 180],
@@ -76,7 +69,6 @@ const Map = ({ places, setMapRef, mapRef }: MapProps) => {
       >
       
         <MapConsumer>
-      
           {(map) => {
             const width =
               window.innerWidth ||
@@ -87,30 +79,7 @@ const Map = ({ places, setMapRef, mapRef }: MapProps) => {
               map.setMinZoom(2)
             }
 
-            // console.log('boundState', boundState, bound)
-
-            // useCallback(() => {
-            //     // if (!map) return;
-
-            //     setBound({bound: map.getBounds(), zoom: map.getBoundsZoom(map.getBounds())})
-            //     // console.log(map.getBounds());
-            
-            //     map.on("zoomend", function () {
-            //       console.log(map.getBounds(), map.getBoundsZoom(map.getBounds()));
-            //     });
-
-            //     map.on("moveend", function () {
-            //       console.log(map.getBounds(), map.getBoundsZoom(map.getBounds()));
-            //     });
-
-             
-      
-            //   }, [hasClicked]);
-
-              console.log('map center:', map.getCenter())
-
-            
-
+            console.log('map center:', map.getCenter())
             return null
           }}
         </MapConsumer>
