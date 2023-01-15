@@ -10,7 +10,10 @@ export type PageTemplateProps = {
   body: string
 }
 
-const PageTemplate = ({ body, heading }: PageTemplateProps) => (
+const PageTemplate = ({ body, heading }: PageTemplateProps) => {
+  const isAboutPage = heading === 'About'
+  
+  return (
   <>
     <NextSeo
       title={heading}
@@ -25,8 +28,13 @@ const PageTemplate = ({ body, heading }: PageTemplateProps) => (
       <S.Heading>{heading}</S.Heading>
 
       <S.Body>
-        <div dangerouslySetInnerHTML={{ __html: body }} />
-        {heading === 'About' && (
+        {isAboutPage ? (
+          <div style={{ marginTop: '10rem'}} dangerouslySetInnerHTML={{ __html: body }} />
+        ) : (
+          <div dangerouslySetInnerHTML={{ __html: body }} />
+        )}
+        
+        {isAboutPage && (
           <div style={{ textAlign: 'center', marginTop: '2rem'}}>
             <p style={{'marginTop': '5rem', 'marginBottom': '3rem'}}>Would you like to buy me a coffee?</p>
             <Image
@@ -46,6 +54,6 @@ const PageTemplate = ({ body, heading }: PageTemplateProps) => (
       
     </S.Content>
   </>
-)
+)}
 
 export default PageTemplate
