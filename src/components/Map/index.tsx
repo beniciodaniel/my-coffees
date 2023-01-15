@@ -1,9 +1,8 @@
 import { MapContainer, TileLayer, Marker, MapConsumer } from 'react-leaflet'
 import { useRouter } from 'next/dist/client/router'
 import * as S from './styles'
-import { useRecoilState, useRecoilValue } from "recoil"
-import { boundAtom } from "atoms/boundAtom"
-import { LatLngExpression } from "leaflet"
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { boundAtom } from 'atoms/boundAtom'
 
 type Place = {
   id: string

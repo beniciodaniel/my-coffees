@@ -2,9 +2,7 @@ import NextNprogress from 'nextjs-progressbar'
 import type { AppProps /*, AppContext */ } from 'next/app'
 import Head from 'next/head'
 import GlobalStyles from 'styles/global'
-import {
-  RecoilRoot,
-} from 'recoil';
+import { RecoilRoot } from 'recoil';
 
 import { DefaultSeo } from 'next-seo'
 import SEO from '../../next-seo.config'
