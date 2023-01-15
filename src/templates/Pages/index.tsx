@@ -1,6 +1,7 @@
 import { NextSeo } from 'next-seo'
 import { CloseOutline } from '@styled-icons/evaicons-outline/CloseOutline'
 import LinkWrapper from 'components/LinkWrapper'
+import Image from 'next/image'
 
 import * as S from './styles'
 
@@ -25,10 +26,24 @@ const PageTemplate = ({ body, heading }: PageTemplateProps) => (
 
       <S.Body>
         <div dangerouslySetInnerHTML={{ __html: body }} />
+        {heading === 'About' && (
+          <div style={{ textAlign: 'center', marginTop: '2rem'}}>
+            <p style={{'marginTop': '5rem', 'marginBottom': '3rem'}}>Would you like to buy me a coffee?</p>
+            <Image
+              src="/pix.png"
+              alt="Pix"
+              width={200}
+              height={200}
+              quality={75}
+              objectPosition="top"
+              objectFit="cover"
+            />
+            <p style={{fontSize: '12px', marginTop: '-1rem'}}>PIX</p>
+          </div>
+      )}
       </S.Body>
 
-      {/* {heading === 'About' && <p>KKKK</p>}
-      Inserir PIX */}
+      
     </S.Content>
   </>
 )
