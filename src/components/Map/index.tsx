@@ -1,6 +1,8 @@
 import { MapContainer, TileLayer, Marker, MapConsumer } from 'react-leaflet'
 import { useRouter } from 'next/dist/client/router'
 import * as S from './styles'
+import { useRecoilState, useRecoilValue } from "recoil"
+import { boundAtom } from "atoms/boundAtom"
 
 type Place = {
   id: string
@@ -14,11 +16,16 @@ type Place = {
 
 export type MapProps = {
   places?: Place[]
+  setMapRef: (map: any) => void
+  mapRef: any
 }
 
 const MAPBOX_API_KEY = process.env.NEXT_PUBLIC_MAPBOX_API_KEY
 const MAPBOX_USERID = process.env.NEXT_PUBLIC_MAPBOX_USERID
 const MAPBOX_STYLEID = process.env.NEXT_PUBLIC_MAPBOX_STYLEID
+
+
+
 
 const CustomTileLayer = () => {
   return MAPBOX_API_KEY ? (
@@ -34,14 +41,30 @@ const CustomTileLayer = () => {
   )
 }
 
+
+
 // INSTALADO RECOIL -> USAR ELE PARA FICAR SALVANDO O ULTIMO ZOOM E COORDENADAS DA TELA
 
-const Map = ({ places }: MapProps) => {
+const Map = ({ places, setMapRef, mapRef }: MapProps) => {
+  
   const router = useRouter()
+  const [bound, setBound] = useRecoilState(boundAtom)
+  const boundState = useRecoilValue(boundAtom)
+  
+  
+  function handleClick(slug: string) {
+    // setHasClicked(true)
+    console.log(bound, boundState)
+    setBound({bound: mapRef.getBounds(), zoom: mapRef.getBoundsZoom(mapRef.getBounds())})
+  
+    router.push(`/place/${slug}`)
+  }
 
+  
   return (
     <S.MapWrapper>
       <MapContainer
+        whenCreated={setMapRef}
         center={[0, 0]}
         zoom={3}
         minZoom={3}
@@ -51,7 +74,9 @@ const Map = ({ places }: MapProps) => {
         ]}
         style={{ height: '100%', width: '100%' }}
       >
+      
         <MapConsumer>
+      
           {(map) => {
             const width =
               window.innerWidth ||
@@ -61,6 +86,31 @@ const Map = ({ places }: MapProps) => {
             if (width < 768) {
               map.setMinZoom(2)
             }
+
+            // console.log('boundState', boundState, bound)
+
+            // useCallback(() => {
+            //     // if (!map) return;
+
+            //     setBound({bound: map.getBounds(), zoom: map.getBoundsZoom(map.getBounds())})
+            //     // console.log(map.getBounds());
+            
+            //     map.on("zoomend", function () {
+            //       console.log(map.getBounds(), map.getBoundsZoom(map.getBounds()));
+            //     });
+
+            //     map.on("moveend", function () {
+            //       console.log(map.getBounds(), map.getBoundsZoom(map.getBounds()));
+            //     });
+
+             
+      
+            //   }, [hasClicked]);
+
+              console.log('map center:', map.getCenter())
+
+            
+
             return null
           }}
         </MapConsumer>
@@ -75,9 +125,7 @@ const Map = ({ places }: MapProps) => {
               position={[latitude, longitude]}
               title={name}
               eventHandlers={{
-                click: () => {
-                  router.push(`/place/${slug}`)
-                }
+                click: () => handleClick(slug)
               }}
             />
           )
