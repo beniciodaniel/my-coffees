@@ -29,7 +29,7 @@ const PageTemplate = ({ body, heading }: PageTemplateProps) => {
 
       <S.Body>
         {isAboutPage ? (
-          <div style={{ marginTop: '10rem'}} dangerouslySetInnerHTML={{ __html: body }} />
+          <div style={{ marginTop: '15rem'}} dangerouslySetInnerHTML={{ __html: body }} />
         ) : (
           <div dangerouslySetInnerHTML={{ __html: body }} />
         )}
